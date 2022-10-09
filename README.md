@@ -49,4 +49,13 @@ Using the below query, we can see there will be more than **70,000** vacancies i
    
 ---   
 
-With the help of the following query, we can see 
+### Question 2: Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+
+With the help of the following query, we can see that there is only **1500** potential employee for the mentorship program.
+
+      SELECT
+         COUNT(title)
+      FROM
+         mentorship_eligibility
+         
+
