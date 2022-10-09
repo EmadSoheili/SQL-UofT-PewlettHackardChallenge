@@ -92,10 +92,36 @@ ORDER BY
 SELECT
 	COUNT(title)
 FROM
-	unique_titles
+	uniq_titles;
 	
 SELECT
 	COUNT(title)
 FROM
-	mentorship_eligibility
-	
+	mentorship_eligibility;
+
+
+
+SELECT DISTINCT ON (em.emp_no)
+	em.emp_no,
+	em.first_name,
+	em.last_name,
+	em.birth_date,
+	de.from_date,
+	de.to_date,
+	ti.title
+FROM
+	employees AS em
+	LEFT JOIN
+	dept_emp AS de
+	ON
+	em.emp_no = de.emp_no
+	LEFT JOIN
+	titles AS ti
+	ON
+	em.emp_no = ti.emp_no
+WHERE
+	(de.to_date = '9999-01-01')
+	AND
+	(em.birth_date BETWEEN '1961-01-01' AND '1965-12-31')
+ORDER BY
+	em.emp_no;
