@@ -1,6 +1,6 @@
 # Employee Database with SQL
 
-***University of Toronto - Data Analytics Boot Camp - Module 6 - Employee Database with SQL***
+***University of Toronto - Data Analytics Boot Camp - Module 7 - Employee Database with SQL***
 
 ---
 
