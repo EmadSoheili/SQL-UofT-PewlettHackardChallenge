@@ -12,28 +12,28 @@ Pewlett Hackard is a company that facing a Silver Tsunami, which means numerus e
 
 ## Results
 
-* Table 1: Retirement Titles
+* **Table 1: Retirement Titles**
     * Extracted the information about employees who are retiring including their titles.This table contains duplicates since an employee can be get promotion and posess a new title.
   
 ![](/Resources/Table1.png)
 
 ---
 
-* Table 2: Unique Titles
+* **Table 2: Unique Titles**
     * Extracted last title of every retiring employees. This table contains only unique information for each employee.
-
----
 
 ![](/Resources/Table2.png)
 
-* Table 3: Retiring Titles
+---
+
+* **Table 3: Retiring Titles**
     * This table includes the number of retiring employees categorized by their titles.
 
 ![](/Resources/Table3.png)
 
 ---
 
-* Table 4: Mentorship Eligibility
+* **Table 4: Mentorship Eligibility**
     * Extract the information of eligible employees for the mentorship program
   
 ![](/Resources/Table4.png)
