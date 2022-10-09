@@ -35,3 +35,18 @@ Pewlett Hackard is a company that facing a Silver Tsunami, which means numerus e
 ---
 
 ## Summary
+
+### Question 1: How many roles will need to be filled as the "silver tsunami" begins to make an impact?
+
+Using the below query, we can see there will be more than ***70,000*** vacancies in the company in near future.
+
+      *SELECT
+         COUNT(title)
+      FROM
+         unique_titles*
+   
+![](/Resources/Table5.PNG)
+   
+---   
+
+With the help of the following query, we can see 
