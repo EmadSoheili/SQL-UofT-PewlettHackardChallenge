@@ -15,22 +15,22 @@ Pewlett Hackard is a company that facing a Silver Tsunami, which means numerus e
 * Table 1: Retirement Titles
     * Extracted the information about employees who are retiring including their titles.This table contains duplicates since an employee can be get promotion and posess a new title.
   
-![](/Resources/Table1.PNG)
+![](/Resources/Table1.png)
 
 * Table 2: Unique Titles
     * Extracted last title of every retiring employees. This table contains only unique information for each employee.
   
-![](/Resources/Table2.PNG)
+![](/Resources/Table2.png)
 
 * Table 3: Retiring Titles
     * This table includes the number of retiring employees categorized by their titles.
   
-![](/Resources/Table3.PNG)
+![](/Resources/Table3.png)
 
 * Table 3: Mentorship Eligibility
     * Extract the information of eligible employees for the mentorship program
   
-![](/Resources/Table4.PNG)
+![](/Resources/Table4.png)
 
 ---
 
@@ -43,9 +43,9 @@ Using the below query, we can see there will be more than **70,000** vacancies i
       SELECT
          COUNT(title)
       FROM
-         unique_titles
+         unique_titles;
    
-![](/Resources/Table5.PNG)
+![](/Resources/Table5.png)
    
 ---   
 
@@ -56,6 +56,41 @@ With the help of the following query, we can see that there is only **1500** pot
       SELECT
          COUNT(title)
       FROM
-         mentorship_eligibility
+         mentorship_eligibility;
          
+![](/Resources/Table6.png)
 
+---
+
+It seems the filtering criteria is a little too strict. We have to reconsider it. For example, we have to give a chance to a little older (than who born in 1965) individuals. At least it gives us a couple of years to recruit people for dealing with the Silver Tsunami.
+
+Looking at the query below, we can have more than **75,000** eligible ones just if we consider 1961 born employees instead of 1965.
+
+      SELECT DISTINCT ON (em.emp_no)
+         em.emp_no,
+         em.first_name,
+         em.last_name,
+         em.birth_date,
+         de.from_date,
+         de.to_date,
+         ti.title
+      INTO
+         mentorship_eligibility
+      FROM
+         employees AS em
+         LEFT JOIN
+         dept_emp AS de
+         ON
+         em.emp_no = de.emp_no
+         LEFT JOIN
+         titles AS ti
+         ON
+         em.emp_no = ti.emp_no
+      WHERE
+         (de.to_date = '9999-01-01')
+         AND
+         (em.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+      ORDER BY
+         em.emp_no;
+         
+This way, we can create a balance between retiring employees and eligible candidates.
